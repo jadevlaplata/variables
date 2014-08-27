@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>CONCEPTOS DE LENGUAJES DE PROGRAMACI&Oacute;N - VARIABLES</title>
+<link type="text/css" rel="stylesheet" href="./css/ui-lightness/jquery-ui-1.10.4.custom.min.css" />
+<script type="text/javascript" src='./sh/Scripts/jquery-2.1.0.min.js'></script>
+<script type="text/javascript" src='./sh/Scripts/jcanvas.min.js'></script>
+<script type="text/javascript" src='./sh/Scripts/jquery-ui-1.10.4.custom.min.js'></script>
+<link type="text/css" rel="stylesheet" href="./css/style.css"  />
+</head>
+<body>
+	<div id="codigo" style="position: absolute; top: 10px; left:5px; z-index: -1;">
+	<!-- ESCRIBA EL CÓDIGO A RESOLVER DENTRO DEL TAG PRE, EN CUALQUIERA DE LOS LENGUAJES QUE UD. DESEE -->
+	<pre  name="code" class="vb:nocontrols:firstline[1]">
+	PROGRAM Inicio //Lenguaje PASCAL
+		var a:integer;
+		var b: char;
+		CONSTANT c:=1;
+		Procedura PP1 
+			var i:integer;	
+			var a:char;
+		begin
+			write("esto es una prueba");
+			for(i=0 to 10) begin
+				read(a);
+			end;
+		end;
+	BEGIN	
+		a:=0;
+		while (a<10) begin
+			PP1();
+			a:=a+1;
+		end;
+	END.
+	</pre>
+	</div>
+<script type="text/javascript" src="./sh/Scripts/script.js"></script>
+<canvas id="canvas" style="position: float;"></canvas>
+<link type="text/css" rel="stylesheet" href="./sh/Styles/SyntaxHighlighter.css" />
+<script type="text/javascript" src='./sh/Scripts/shCore.js'></script>
+<script type="text/javascript" src='./sh/Scripts/shBrushVb.js'></script>
+<script language="javascript">
+dp.SyntaxHighlighter.ClipboardSwf = './sh/Scripts/clipboard.swf';
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+	<div id="capaVariables">
+		<form action="javascript:crearHtml();">
+			<LABEL for="nomVar">Identificador</LABEL>
+			<INPUT type="text" size="15" maxlength="15" id="nomVar" value="" />
+			<INPUT type="submit" value="AGREGAR IDENTIFICADOR"/>
+		</form>
+	</div>
+	<TABLE id="tablaResultados">
+		<THEAD>
+			<TR><TH>Nombre</TH><TH>Tipo</TH><TH>Alcance</TH><TH>T. Vida</TH><TH>R-Value</TH><TH>Operaciones</TH></TR>
+		</THEAD>
+	</TABLE>
+	<INPUT type="button" value="COMPROBAR" onclick="javascript:comprobar();"/>
+	<div style="position: absolute;top: 0px;left: 0px;">
+		<a href="./index.html" target="_self">Inicio</a>
+		<a href="#" id="ayuda" onclick="javascript:$('#dialog').dialog();">Ayuda</a>
+	</div>
+	<div id="dialog" title="Ayuda">
+		<div>
+			<b>Alcance:</b><img alt='alcance' src='images/alcance.png' width='10px' height='10px'/> &nbsp;&nbsp;&nbsp;<b>Tiempo de Vida:</b><img alt='tiempoVida' src='images/tiempoVida.png' width='10px' height='10px'/>
+		</div>
+		<div>
+			<b>Agregar una variable:</b> Ingrese el nombre de la variable y haga click en "AGREGAR IDENTIFICADOR"
+	  	</div>
+	  	<div>
+	  		<b>Aplicar los valores ingresados:</b> Click en la imagen <img alt='aplicar' src='images/aplicar.png' width='10px' height='10px'/>
+	  	</div>
+	  	<div>
+		  	<b>Agregar nuevos valores para una variable:</b> Click en la imagen <img alt='agregar' src='images/agregar.png' width='10px' height='10px'/>. Cambie s&oacute;lo los valores necesarios aunque el resto se repita.
+		</div>
+	    <div>
+	  		<b>Eliminar una variable:</b> Click en la imagen <img alt='eliminar' src='images/eliminar.png' width='10px' height='10px'/>. Se eliminan todas las filas de la variable.
+	  	</div>
+	   	<div>
+	  		<b>Verificar Resultados:</b> Click en el botón "COMPROBAR"
+	  	</div>
+	  	<div>
+	  		<b>El alcance de un identificador se debe marcar desde su l&iacute;nea de definici&oacute;n. Cuando sea de una única l&iacute;nea (ej. 3) se debe escribir 3-3</b>
+	  	</div>
+	  	<div>
+	  		<b>Ingrese los valores sin el d&iacute;gito 0 a la izquierda (Ej:02 NO!!!)</b>
+	  	</div>
+	  	<div>
+	  		<b>Para los punteros, la variable que apunta se anota con el nombre seguido de * (Ej. "p*").</b>
+	  	</div>
+	  	<div>
+	  		<b>RECUERDE PARA QUE LA COMPROBACI&Oacute;N MUESTRE UN RESULTADO EXITOSO DEBER&Aacute; AGREGAR LOS IDENTIFICADORES POR ORDEN DE APARICI&Oacute;N. DEBE COMPLETAR TODOS LOS CASILLEROS AUNQUE LOS DATOS SE REPITAN (EXCEPTO R-VALUE)</b>
+	  	</div>
+	</div>
+<script type="text/javascript" src="./sh/Scripts/jquery.numeric.js"></script>
+<script type="text/javascript">
+/*
+ * 
+ ASIGNE LOS VALORES A LAS VARIABLES RESPETANDO SU TIPO Y SINTAXIS
+ */
+var pxInitE=300; //cant pixeles para comenzar a dibujar alcance y tv (numérico)
+var pxDistEV=50; //distancia en píxeles entre variables a dibujar alcance y tv (numérico)
+var alto =310; //alto en píxeles del código escrito en pantalla (numérico)
+var resultado=[{"nvar":"Inicio","type":"auto","a":"1-20","tv":"1-20","rv":""},
+           {"nvar":"a","type":"auto","a":"2-6","tv":"1-20","rv":""},
+           {"nvar":"a","type":"auto","a":"14-20","tv":"1-20","rv":""},
+           {"nvar":"b","type":"auto","a":"3-20","tv":"1-20","rv":""},
+           {"nvar":"c","type":"auto","a":"4-20","tv":"1-20","rv":"1"},
+           {"nvar":"PP1","type":"auto","a":"5-20","tv":"5-13","rv":""},
+           {"nvar":"i","type":"auto","a":"6-13","tv":"5-13","rv":""},
+           {"nvar":"a","type":"auto","a":"7-13","tv":"5-13","rv":""}];
+</script>
+</body>
+</html>

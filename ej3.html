@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>CONCEPTOS DE LENGUAJES DE PROGRAMACI&Oacute;N - VARIABLES</title>
+<link type="text/css" rel="stylesheet" href="./css/ui-lightness/jquery-ui-1.10.4.custom.min.css" />
+<script type="text/javascript" src='./sh/Scripts/jquery-2.1.0.min.js'></script>
+<script type="text/javascript" src='./sh/Scripts/jcanvas.min.js'></script>
+<script type="text/javascript" src='./sh/Scripts/jquery-ui-1.10.4.custom.min.js'></script>
+<link type="text/css" rel="stylesheet" href="./css/style.css"  />
+</head>
+<body>
+	<div id="codigo" style="position: absolute; top: 10px; left:5px; z-index: -1;">
+	<!-- ESCRIBA EL CÓDIGO A RESOLVER DENTRO DEL TAG PRE, EN CUALQUIERA DE LOS LENGUAJES QUE UD. DESEE -->
+	<pre  name="code" class="vb:nocontrols:firstline[1]">
+with Text_IO; use Text_IO; //LENGUAJE ADA
+y: integer;
+n: integer;
+c: char="a";
+	procedure Doit is
+    	y: integer;
+    	procedure Hola() is
+       		var x: integer=0;
+       	begin
+       		if x=2 then
+       			put("The Truth is out there");
+      		else  put ("Live...");
+      		end if
+      	end Hola;
+    begin
+    	y:=2;
+    	Hola();
+    end Doit;
+ 	procedure Doit2 is
+       y:char;
+       procedure Tres() is
+       	type pointer is access integer;
+       	v2:vector(0..n);
+	   	c1, c2: character;
+	   	p:pointer;
+       begin
+       	if x=2 then
+        	put("The Truth is out there2");
+      	else  Doit();
+      	end if
+      	p=new pointer;
+      	put("something with pointer");
+      	free p;
+       end Tres;
+     begin
+      y="var y";
+      Tres();
+     end Doit2;
+BEGIN
+Doit2();
+END.</pre>
+	</div>
+<script type="text/javascript" src="./sh/Scripts/script.js"></script>
+<canvas id="canvas" style="position: float;"></canvas>
+<link type="text/css" rel="stylesheet" href="./sh/Styles/SyntaxHighlighter.css" />
+<script type="text/javascript" src='./sh/Scripts/shCore.js'></script>
+<script type="text/javascript" src='./sh/Scripts/shBrushVb.js'></script>
+<script language="javascript">
+dp.SyntaxHighlighter.ClipboardSwf = './sh/Scripts/clipboard.swf';
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+	<div id="capaVariables">
+		<form action="javascript:crearHtml();">
+			<LABEL for="nomVar">Identificador</LABEL>
+			<INPUT type="text" size="15" maxlength="15" id="nomVar" value="" />
+			<INPUT type="submit" value="AGREGAR IDENTIFICADOR"/>
+		</form>
+	</div>
+	<TABLE id="tablaResultados">
+		<THEAD>
+			<TR><TH>Nombre</TH><TH>Tipo</TH><TH>Alcance</TH><TH>T. Vida</TH><TH>R-Value</TH><TH>Operaciones</TH></TR>
+		</THEAD>
+	</TABLE>
+	<INPUT type="button" value="COMPROBAR" onclick="javascript:comprobar();"/>
+	<div style="position: absolute;top: 0px;left: 0px;">
+		<a href="./index.html" target="_self">Inicio</a>
+		<a href="#" id="ayuda" onclick="javascript:$('#dialog').dialog();">Ayuda</a>
+	</div>
+	<div id="dialog" title="Ayuda">
+		<div>
+			<b>Alcance:</b><img alt='alcance' src='images/alcance.png' width='10px' height='10px'/> &nbsp;&nbsp;&nbsp;<b>Tiempo de Vida:</b><img alt='tiempoVida' src='images/tiempoVida.png' width='10px' height='10px'/>
+		</div>
+		<div>
+			<b>Agregar una variable:</b> Ingrese el nombre de la variable y haga click en "AGREGAR IDENTIFICADOR"
+	  	</div>
+	  	<div>
+	  		<b>Aplicar los valores ingresados:</b> Click en la imagen <img alt='aplicar' src='images/aplicar.png' width='10px' height='10px'/>
+	  	</div>
+	  	<div>
+		  	<b>Agregar nuevos valores para una variable:</b> Click en la imagen <img alt='agregar' src='images/agregar.png' width='10px' height='10px'/>. Cambie s&oacute;lo los valores necesarios aunque el resto se repita.
+		</div>
+	    <div>
+	  		<b>Eliminar una variable:</b> Click en la imagen <img alt='eliminar' src='images/eliminar.png' width='10px' height='10px'/>. Se eliminan todas las filas de la variable.
+	  	</div>
+	   	<div>
+	  		<b>Verificar Resultados:</b> Click en el botón "COMPROBAR"
+	  	</div>
+	  	<div>
+	  		<b>El alcance de un identificador se debe marcar desde su l&iacute;nea de definici&oacute;n. Cuando sea de una única l&iacute;nea (ej. 3) se debe escribir 3-3</b>
+	  	</div>
+	  	<div>
+	  		<b>Ingrese los valores sin el d&iacute;gito 0 a la izquierda (Ej:02 NO!!!)</b>
+	  	</div>
+	  	<div>
+	  		<b>Para los punteros, la variable que apunta se anota con el nombre seguido de * (Ej. "p*").</b>
+	  	</div>
+	  	<div>
+	  		<b>RECUERDE PARA QUE LA COMPROBACI&Oacute;N MUESTRE UN RESULTADO EXITOSO DEBER&Aacute; AGREGAR LOS IDENTIFICADORES POR ORDEN DE APARICI&Oacute;N. DEBE COMPLETAR TODOS LOS CASILLEROS AUNQUE LOS DATOS SE REPITAN (EXCEPTO R-VALUE)</b>
+	  	</div>
+	</div>
+<script type="text/javascript" src="./sh/Scripts/jquery.numeric.js"></script>
+<script type="text/javascript">
+/*
+ * 
+ ASIGNE LOS VALORES A LAS VARIABLES RESPETANDO SU TIPO Y SINTAXIS
+ */
+var pxInitE=400; //cant pixeles para comenzar a dibujar alcance y tv (numérico)
+var pxDistEV=50; //distancia en píxeles entre variables a dibujar alcance y tv (numérico)
+var alto =630; //alto en píxeles del código escrito en pantalla (numérico)
+var resultado=[{"nvar":"y","type":"auto","a":"2-5","tv":"1-41","rv":""},
+               {"nvar":"y","type":"auto","a":"19-19","tv":"1-41","rv":""},
+               {"nvar":"y","type":"auto","a":"1-20","tv":"1-41","rv":""},
+           {"nvar":"n","type":"auto","a":"3-41","tv":"1-41","rv":""},
+           {"nvar":"c","type":"auto","a":"4-41","tv":"1-41","rv":"a"},
+           {"nvar":"Doit","type":"auto","a":"5-41","tv":"5-18","rv":""},
+           {"nvar":"y","type":"auto","a":"6-18","tv":"5-18","rv":""},
+           {"nvar":"Hola","type":"auto","a":"7-18","tv":"7-14","rv":""},
+           {"nvar":"x","type":"auto","a":"8-14","tv":"7-14","rv":"0"},
+           {"nvar":"Doit2","type":"auto","a":"19-41","tv":"19-38","rv":""},
+           {"nvar":"y","type":"auto","a":"20-38","tv":"19-38","rv":""},
+           {"nvar":"Tres","type":"auto","a":"21-38","tv":"21-34","rv":""},
+           {"nvar":"v2","type":"semi","a":"23-34","tv":"21-34","rv":""},
+           {"nvar":"c1","type":"auto","a":"24-34","tv":"21-34","rv":""},
+           {"nvar":"c2","type":"auto","a":"24-34","tv":"21-34","rv":""},
+           {"nvar":"p","type":"auto","a":"25-34","tv":"21-34","rv":""},
+           {"nvar":"p*","type":"dinamic","a":"25-34","tv":"31-33","rv":"null"}];
+</script>
+</body>
+</html>
